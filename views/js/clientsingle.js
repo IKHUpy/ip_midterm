@@ -10,7 +10,7 @@ $(function() {
    $("#btn-new-client").click(function(){
    	  $("#tns-cname").focus();
       swal.fire({
-          title: 'Do you want create new client details?',
+          title: 'Do you want create new client details????',
           type: 'question',
           showCancelButton: true,
           confirmButtonText: 'Yes',

@@ -8,9 +8,9 @@ $(function() {
    });    
 
    $("#btn-new").click(function(){
-   	  $("#tns-cname").focus();
+   	  $("#tns-product-name").focus();
       swal.fire({
-          title: 'Do you want create new client details????',
+          title: 'Do you want create new product detailsss?',
           type: 'question',
           showCancelButton: true,
           confirmButtonText: 'Yes',
@@ -27,19 +27,16 @@ $(function() {
    });
 
    function initialize(){
-     $("#tns-cname").val('');
-     $("#tns-clientid").val('');
-     $("#tns-address").val('');
-     $("#num-phone").val('');
-     $("#num-mobile").val('');
-     $("#tns-email").val('');
-     $("#tns-website").val('');
-     $("#tns-cperson").val('');
-     $("#tns-cname").focus();
+     $("#tns-product-name").val('');
+     $("#tns-product-abbriviation").val('');
+     $("#num-product-qty").val('');
+     $("#num-product-price").val('');
+     $("#tns-product-category").val('');
+     $("#tns-product-brand").val('');
    } 
 
-   $(".clientlist").on("click", "tbody .btnEditClient", function(){
-     var idClient = $(this).attr("idClient");
-     window.location = "index.php?route=clientedit&idClient="+idClient;
+   $(".productlist").on("click", "tbody .btnEditProduct", function(){
+     var idProduct = $(this).attr("idProduct");
+     window.location = "index.php?route=productedit&idProduct="+idProduct;
    });     	
 });    

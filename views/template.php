@@ -51,6 +51,8 @@
             $_GET["route"] == 'students' ||
             $_GET["route"] == 'payrollbrowse' ||   
             $_GET["route"] == 'gridtrans' ||  
+            $_GET["route"] == 'products' || 
+            $_GET["route"] == 'productadd' ||  
             $_GET["route"] == 'clientedit'){
           include "modules/".$_GET["route"].".php";
         }else{
@@ -114,8 +116,8 @@
   <script src="views/js/autologout.js"></script>
   <script src="views/helpers/helper.js"></script>
   <script src="views/js/clients.js"></script>
+  <script src="views/js/productsingle.js"></script>
   <script src="views/js/grid.js"></script>
-  <script src="views/js/clientsingle.js"></script>
   <script src="views/js/payroll.js"></script>
   <script src="views/js/keydatatable.js"></script>
 

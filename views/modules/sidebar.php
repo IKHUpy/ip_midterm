@@ -15,7 +15,7 @@
       		  <li><a href="clientsingle"><i class="zmdi zmdi-dot-circle-alt"></i> Client Single Page</a></li>
       		  <li><a href="clientadd"><i class="zmdi zmdi-dot-circle-alt"></i> Clients</a></li>
             <li><a href="payroll"><i class="zmdi zmdi-dot-circle-alt"></i> Payroll</a></li>
-            <li><a href="studentadd"><i class="zmdi zmdi-dot-circle-alt"></i> Students</a></li>
+            <li><a href="products"><i class="zmdi zmdi-dot-circle-alt"></i> Product</a></li>
       		</ul>
       </li>	
       <li>

@@ -1,32 +1,50 @@
 <?php
-require_once "../controllers/products.controller.php";
-require_once "../models/products.model.php";
+require_once "../controllers/productsingle.controller.php";
+require_once "../models/productsingle.model.php";
 
-class productsTable{
-	public function showProductsTable(){
-		$products = (new ControllerProducts)->ctrShowProducts();
-		if(count($products) == 0){
-			$jsonData = '{"data":[]}';
-			echo $jsonData;
-			return;
-		}
-		$jsonData = '{
-			"data":[';
-				for($i=0; $i < count($products); $i++){
-		  			$buttons =  "<div class='btn-group'><button class='btn btn-light btn-sm waves-effect waves-light m-1 addProduct recoverButton' idProduct='".$products[$i]["id"]."' pdesc='".$products[$i]["pdesc"]."' price='".$products[$i]["price"]."' prodid='".$products[$i]["prodid"]."'><i class='fa fa-plus'></i></button></div>";
+class saveProduct{
+  public $trans_type;
+  public $productname;
+  public $abbriviation;
+  public $productprice;
+  public $productbrand;
+  public $productqty;
+  public $productcategory;
 
-					$jsonData .='[
-						"'.$products[$i]["pdesc"].'",
-						"'.$products[$i]["price"].'",
-						"'.$buttons.'"
-					],';
-				}
-				$jsonData = substr($jsonData, 0, -1);
-				$jsonData .= '] 
-			}';
-		echo $jsonData;
-	}
+  public function saveProductRecord(){
+    $trans_type = $this->trans_type;
+
+  	$productname = $this->productname;
+  	$abbriviation = $this->abbriviation;
+  	$productprice = $this->productprice;
+    $productbrand = $this->productbrand;
+  	$productcategory = $this->productcategory;
+  	$productqty = $this->productqty;
+
+    $data = array("productname"=>$productname,
+    	            "abbriviation"=>$abbriviation,
+                  "productid"=>$productprice,
+                  "address"=>$productbrand,
+                  "phone"=>$productcategory,
+                  "mobile"=>$productqty);
+
+    if ($trans_type == 'New'){
+      $answer = (new ControllerProduct)->ctrCreateProduct($data);
+    }else{
+      $answer = (new ControllerProduct)->ctrEditProduct($data);
+    }
+
+  }
 }
 
-$productList = new productsTable();
-$productList -> showProductsTable();
+$save_product = new saveProduct();
+$save_product -> trans_type = $_POST["trans_type"];
+
+$save_product -> productname = $_POST["productname"];
+$save_product -> abbriviation = $_POST["abbriviation"];
+$save_product -> productprice = $_POST["productprice"];
+$save_product -> productcategory = $_POST["productcategory"];
+$save_product -> productbrand = $_POST["productbrand"];
+$save_product -> productqty = $_POST["productqty"];
+
+$save_product -> saveProductRecord();
