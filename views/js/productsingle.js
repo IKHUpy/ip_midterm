@@ -30,7 +30,7 @@ $(function() {
     $("#product-form").submit(function (e) {
        e.preventDefault();
        
-       var title = "Do you want to update product details!!!!!!!!!?";
+       var title = "Do you want to update product details?";
        var text = "";
  
        swal.fire({
@@ -46,6 +46,7 @@ $(function() {
            buttonsStyling: false
        }).then(function(result) {
            if(result.value) {
+            console.log("'qw product singlee'");
              var productname = $("#tns-product-name").val();
              var productabbriviation = $("#tns-product-abbriviation").val();
              var productqty = $("#num-product-qty").val();
@@ -54,14 +55,13 @@ $(function() {
              var productbrand = $("#tns-product-brand").val();
                          
              var product = new FormData();
- 
              product.append("productname", productname);
              product.append("abbriviation", productabbriviation);
              product.append("productprice", productprice);
              product.append("productcategory", productcategory);
              product.append("productbrand", productbrand);
              product.append("productqty", productqty);
- 
+            
              $.ajax({
                 url:"ajax/product_add_record.ajax.php",
                 method: "POST",
@@ -84,8 +84,8 @@ $(function() {
                      allowOutsideClick: false,
                      buttonsStyling: false
                   }).then(function(result){
-                     if(result.value) {              
-                       $("#btn-new-product").click();
+                     if(result.value) {            
+                        window.location = "products";  
                      }
                   })
                 }
@@ -94,10 +94,11 @@ $(function() {
        });
     });
  
-    $('.productTable tbody').on('dblclick', 'tr', function () {
-       var productid = $(this).attr("productid");
-       var data = new FormData();
-       data.append("productid", productid);
+    $('.productlist').on("click", "tbody .btnEditProduct", function () {
+        var productid = $(this).attr("idproduct");
+        var data = new FormData();
+        data.append("productid", productid);
+        console.log("data.productid = ", data.get("productid"));
        $.ajax({
           url:"ajax/product_get_record.ajax.php",
           method: "POST",
@@ -107,14 +108,21 @@ $(function() {
           processData: false,
           dataType:"json",
           success:function(answer){
-           // This alert proves that record has been successfully fetched from the products table
-           alert(answer["cname"]);
-           // You task here is to display the record in the product form, then
-           // Continue with editing record...
- 
-           $("#trans_type").val("Update");
-           $("#modal-search-product").modal('hide');
-         }
+            if ($.isEmptyObject(answer)) {
+                console.log("No data returned from the server");
+            } else {
+                var url = "./productedit?";
+                url += "productid=" + encodeURIComponent(answer[0]["productid"]);
+                url += "&productname=" + encodeURIComponent(answer[0]["productname"]);
+                url += "&abbriviation=" + encodeURIComponent(answer[0]["abbriviation"]);
+                url += "&productprice=" + encodeURIComponent(answer[0]["productprice"]);
+                url += "&productcategory=" + encodeURIComponent(answer[0]["productcategory"]);
+                url += "&productbrand=" + encodeURIComponent(answer[0]["productbrand"]);
+                url += "&productqty=" + encodeURIComponent(answer[0]["productqty"]);
+                
+                window.location.href = url;
+            }
+         },
        })
     });
  

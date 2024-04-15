@@ -28,11 +28,6 @@ class saveProduct{
                   "phone"=>$productcategory,
                   "mobile"=>$productqty);
 
-    if ($trans_type == 'New'){
-      $answer = (new ControllerProduct)->ctrCreateProduct($data);
-    }else{
-      $answer = (new ControllerProduct)->ctrEditProduct($data);
-    }
 
   }
 }

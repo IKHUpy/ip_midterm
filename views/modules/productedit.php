@@ -5,7 +5,7 @@
   <div class="container-fluid">
    <div class="row pt-2 pb-2">
      <div class="col-sm-12">
-  	    <h4 class="page-title">NEW PRODUCT INFORMATION</h4>
+  	    <h4 class="page-title">EDIT PRODUCT INFORMATION</h4>
      </div>
    </div>
 
@@ -81,7 +81,9 @@
                 </div>
                 <div class="col-lg-9">
                   <div class="float-sm-right">
-                   <button type="submit" class="btn btn-light btn-round px-5" id="btn-save-product"><i class="fa fa-save"></i>&nbsp;&nbsp;Save</button>
+                   <button type="button" class="btn btn-light btn-round px-5" onClick="location.href='productadd'"><i class="fa fa-file"></i>&nbsp;&nbsp;New</button>
+
+                   <button type="button" class="btn btn-light btn-round px-5" id="btn-edit-product"><i class="fa fa-save"></i>&nbsp;&nbsp;Save</button>
 
                    <button type="button" class="btn btn-light btn-round px-5" onClick="location.href='products'"><i class="fa fa-list"></i>&nbsp;&nbsp;Listing</button>                           
                   </div>

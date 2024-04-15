@@ -41,7 +41,7 @@
                               <td>'.$value["productqty"].'</td>      
                               <td>
                                 <div class="btn-group group-round m-1">
-                                  <button class="btn btn-sm btn-light waves-effect waves-light btnEditProduct" idProduct="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+                                  <button class="btn btn-sm btn-light waves-effect waves-light btnEditProduct" idProduct="'.$value["productid"].'"><i class="fa fa-pencil"></i></button>
                                 </div>  
                               </td>
                             </tr>';

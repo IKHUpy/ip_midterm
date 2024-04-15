@@ -57,33 +57,39 @@ class ControllerProduct{
 			    </script>';   
 			}
 	}
+	static public function ctrGetProduct($item, $value){
+		$answer = (new ModelProducts)->mdlGetProduct($item, $value);
+		return $answer;
+	}
 
 	static public function ctrShowProducts(){
 		$answer = (new ModelProducts)->mdlShowProducts();
 		return $answer;
 	}
 
-	static public function ctrEditProduct(){
-		if(isset($_POST["tns-cname"])){
-            if (isset($_POST['num-isactive'])){
-			  $isactive=$_POST['num-isactive'];
-			}else{
-			  $isactive="0";
-			}
+	static public function ctrEditProduct($data){
 
-		   	$table = "products";
-		   	$data = array("id"=>$_POST["idProduct"],
-		   		          "productid"=>$_POST["tns-productid"],
-		   		          "isactive"=>$isactive,
-		   				  "cname"=>$_POST["tns-cname"],
-				          "email"=>$_POST["tns-email"],
-				          "phone"=>$_POST["num-phone"],
-				          "address"=>$_POST["tns-address"],
-				          "website"=>$_POST["tns-website"],
-				          "mobile"=>$_POST["num-mobile"],
-				          "cperson"=>$_POST["tns-cperson"]);
+			$table = "products";
 
-		   	$answer = (new ModelProducts)->mdlEditProduct($table, $data);
+			$productid = $data["productid"];
+			$productname = $data["productname"];
+			$abbriviation = $data["abbriviation"];
+			$productprice = $data["productprice"];
+			$productqty = $data["productqty"];
+			$productcategory = $data["productcategory"];
+			$productbrand = $data["productbrand"];
+			
+			$productData = array(
+				"productid" => $productid,
+				   "productname" => $productname,
+				   "abbriviation" => $abbriviation,
+				   "productprice" => $productprice,
+				   "productqty" => $productqty,
+				   "productcategory" => $productcategory,
+				   "productbrand" => $productbrand
+			   );
+
+		   	$answer = (new ModelProducts)->mdlEditProduct($table, $productData);
 
 		   	if($answer == "ok"){
 				echo'<script>
@@ -101,7 +107,6 @@ class ControllerProduct{
 			        })
 			    </script>';    
 			}
-		}
 	}		
 }
 

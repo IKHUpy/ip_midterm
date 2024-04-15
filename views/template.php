@@ -53,6 +53,7 @@
             $_GET["route"] == 'gridtrans' ||  
             $_GET["route"] == 'products' || 
             $_GET["route"] == 'productadd' ||  
+            $_GET["route"] == 'productedit' ||  
             $_GET["route"] == 'clientedit'){
           include "modules/".$_GET["route"].".php";
         }else{
@@ -117,6 +118,7 @@
   <script src="views/helpers/helper.js"></script>
   <script src="views/js/clients.js"></script>
   <script src="views/js/productsingle.js"></script>
+  <script src="views/js/productedit.js"></script>
   <script src="views/js/grid.js"></script>
   <script src="views/js/payroll.js"></script>
   <script src="views/js/keydatatable.js"></script>
