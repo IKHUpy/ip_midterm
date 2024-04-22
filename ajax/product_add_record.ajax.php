@@ -9,6 +9,8 @@ class addProduct{
   public $productbrand;
   public $productqty;
   public $productcategory;
+  public $productallowtrans;
+  public $productlicenseduedate;
 
   public function addProductRecord(){
     // Get property values
@@ -18,6 +20,8 @@ class addProduct{
     $productbrand = $this->productbrand;
     $productcategory = $this->productcategory;
     $productqty = $this->productqty;
+    $productallowtrans = $this->productallowtrans;
+    $productlicenseduedate = $this->productlicenseduedate;
 
     // Create an array with product data
     $data = array(
@@ -26,7 +30,9 @@ class addProduct{
         "productprice" => $productprice,
         "productbrand" => $productbrand,
         "productcategory" => $productcategory,
-        "productqty" => $productqty
+        "productqty" => $productqty,
+        "productallowtrans" => $productallowtrans,
+        "productlicenseduedate" => $productlicenseduedate
     );
 
     $controllerProduct = new ControllerProduct();
@@ -43,5 +49,7 @@ $save_product -> productprice = $_POST["productprice"];
 $save_product -> productcategory = $_POST["productcategory"];
 $save_product -> productbrand = $_POST["productbrand"];
 $save_product -> productqty = $_POST["productqty"];
+$save_product -> productallowtrans = $_POST["productallowtrans"];
+$save_product -> productlicenseduedate = $_POST["productlicenseduedate"];
 
 $save_product -> addProductRecord();

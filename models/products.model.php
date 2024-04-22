@@ -9,8 +9,8 @@ class ModelProducts{
         $cust_id->execute();
 		$custid = $cust_id -> fetchAll(PDO::FETCH_ASSOC);
 		
-		$stmt = (new Connection)->connect()->prepare("INSERT INTO $table(productid, productname, abbriviation, productprice, productcategory, productbrand, productqty) 
-		VALUES (:productid, :productname, :abbriviation, :productprice, :productcategory, :productbrand, :productqty)");
+		$stmt = (new Connection)->connect()->prepare("INSERT INTO $table(productid, productname, abbriviation, productprice, productcategory, productbrand, productqty, productallowtrans, productlicenseduedate) 
+		VALUES (:productid, :productname, :abbriviation, :productprice, :productcategory, :productbrand, :productqty, :productallowtrans, :productlicenseduedate)");
 			
 		$productPrice = number_format($data["productprice"], 2);
 		
@@ -21,6 +21,8 @@ class ModelProducts{
 		$stmt->bindParam(":productcategory", $data["productcategory"], PDO::PARAM_STR);
 		$stmt->bindParam(":productbrand", $data["productbrand"], PDO::PARAM_STR);
 		$stmt->bindParam(":productqty", $data["productqty"], PDO::PARAM_INT);
+		$stmt->bindParam(":productallowtrans", $data["productallowtrans"], PDO::PARAM_INT);
+		$stmt->bindParam(":productlicenseduedate", $data["productlicenseduedate"], PDO::PARAM_STR);
 		
 
 		if($stmt->execute()){

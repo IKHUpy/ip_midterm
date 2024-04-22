@@ -10,7 +10,7 @@ $(function() {
     $("#btn-new-product").click(function(){
           $("#tns-cname").focus();
        swal.fire({
-           title: 'Do you want create new product details?e???',
+           title: 'Do you want create new product details?@@?',
            type: 'question',
            showCancelButton: true,
            confirmButtonText: 'Yes',
@@ -30,7 +30,7 @@ $(function() {
     $("#product-form").submit(function (e) {
        e.preventDefault();
        
-       var title = "Do you want to update product details?";
+       var title = "Do you want to update product details?===";
        var text = "";
  
        swal.fire({
@@ -46,14 +46,25 @@ $(function() {
            buttonsStyling: false
        }).then(function(result) {
            if(result.value) {
-            console.log("'qw product singlee'");
+            console.log("'qw product sqwlekqlkinglee'");
              var productname = $("#tns-product-name").val();
              var productabbriviation = $("#tns-product-abbriviation").val();
              var productqty = $("#num-product-qty").val();
              var productprice = $("#num-product-price").val();
              var productcategory = $("#tns-product-category").val();
              var productbrand = $("#tns-product-brand").val();
+             var productallowtrans = $("#num-isactive").val();
+             productallowtrans = productallowtrans == 1 ? 1 : 0;
+             var productlicenseduedate = $("#date-product-licenseduedate").val();
+             var parts = productlicenseduedate.split('/');
+             var parsedDate = new Date(parts[2], parts[0] - 1, parts[1]);
+             productlicenseduedate = parsedDate.getFullYear() + '-' + 
+            ('0' + (parsedDate.getMonth() + 1)).slice(-2) + '-' + 
+            ('0' + parsedDate.getDate()).slice(-2);
+            console.log("Formatted Product License Due Date:", productlicenseduedate);
                          
+console.log("Product Allow Transactions:", productallowtrans);
+console.log("Product License Due Date:", productlicenseduedate);
              var product = new FormData();
              product.append("productname", productname);
              product.append("abbriviation", productabbriviation);
@@ -61,6 +72,8 @@ $(function() {
              product.append("productcategory", productcategory);
              product.append("productbrand", productbrand);
              product.append("productqty", productqty);
+             product.append("productallowtrans", productallowtrans);
+             product.append("productlicenseduedate", productlicenseduedate);
             
              $.ajax({
                 url:"ajax/product_add_record.ajax.php",

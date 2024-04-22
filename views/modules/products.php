@@ -26,19 +26,27 @@
                       <th>Category</th>
                       <th>Brand</th>
                       <th>Qty</th>
+                      <th>Transactional</th>
+                      <th>License Due date</th>
                     </tr>
                 </thead>
                 <tbody>
                   <?php
                     $products = (new ControllerProduct)->ctrShowProducts();
                     foreach ($products as $key => $value) {
+                      $booleann = $value["productallowtrans"] == 1 ? "Yes" : "No";
+                      $productlicenseduedate = $value["productlicenseduedate"];
+                      $dateObject = new DateTime($productlicenseduedate);
+                      $formattedDate = $dateObject->format('m/d/Y');
                       echo '<tr>
                               <td>'.$value["productname"].'</td>
                               <td>'.$value["abbriviation"].'</td>
                               <td>'.$value["productprice"].'</td>  
                               <td>'.$value["productcategory"].'</td>
                               <td>'.$value["productbrand"].'</td>      
-                              <td>'.$value["productqty"].'</td>      
+                              <td>'.$value["productqty"].'</td>     
+                              <td>'.$booleann.'</td>      
+                              <td>'.$formattedDate.'</td>    
                               <td>
                                 <div class="btn-group group-round m-1">
                                   <button class="btn btn-sm btn-light waves-effect waves-light btnEditProduct" idProduct="'.$value["productid"].'"><i class="fa fa-pencil"></i></button>

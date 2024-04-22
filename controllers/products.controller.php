@@ -12,6 +12,8 @@ class ControllerProduct{
 		$productqty = $data["productqty"];
 		$productcategory = $data["productcategory"];
 		$productbrand = $data["productbrand"];
+		$productallowtrans = $data["productallowtrans"];
+		$productlicenseduedate = $data["productlicenseduedate"];
 	
 		// Create an array with product data
 		$productData = array(
@@ -20,7 +22,9 @@ class ControllerProduct{
 			"productprice" => $productprice,
 			"productqty" => $productqty,
 			"productcategory" => $productcategory,
-			"productbrand" => $productbrand
+			"productbrand" => $productbrand,
+			"productallowtrans" => $productallowtrans,
+			"productlicenseduedate" => $productlicenseduedate
 		);
 	
 		// Call the model method to add the product
