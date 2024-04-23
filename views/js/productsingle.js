@@ -62,9 +62,8 @@ $(function() {
             ('0' + (parsedDate.getMonth() + 1)).slice(-2) + '-' + 
             ('0' + parsedDate.getDate()).slice(-2);
             console.log("Formatted Product License Due Date:", productlicenseduedate);
-                         
-console.log("Product Allow Transactions:", productallowtrans);
-console.log("Product License Due Date:", productlicenseduedate);
+            console.log("Product Allow Transactions:", productallowtrans);
+            console.log("Product License Due Date:", productlicenseduedate);
              var product = new FormData();
              product.append("productname", productname);
              product.append("abbriviation", productabbriviation);

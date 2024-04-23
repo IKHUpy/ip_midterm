@@ -53,5 +53,7 @@ $edit_product -> productprice = $_POST["productprice"];
 $edit_product -> productcategory = $_POST["productcategory"];
 $edit_product -> productbrand = $_POST["productbrand"];
 $edit_product -> productqty = $_POST["productqty"];
+$edit_product -> productallowtrans = $_POST["productallowtrans"];
+$edit_product -> productlicenseduedate = $_POST["productlicenseduedate"];
 
 $edit_product -> editProductRecord();

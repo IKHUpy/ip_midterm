@@ -33,6 +33,8 @@ $(function() {
      $("#num-product-price").val('');
      $("#tns-product-category").val('');
      $("#tns-product-brand").val('');
+     $("#num-isactive").val('');
+     $("#date-product-licenseduedate").val('');
    } 
 
    $(".productlist").on("click", "tbody .btnEditProduct", function(){

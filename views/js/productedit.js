@@ -1,4 +1,3 @@
-// Parse the URL parameters
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -8,8 +7,18 @@ function getParameterByName(name, url) {
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
+function parseDate(dateString) {
+  if (dateString === null) return "select date";
+    var parts = dateString.split('-');
+    return parts[1] + '/' + parts[2] + '/' + parts[0];
+}
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById('set-calendar-null').addEventListener('click', function() {
+      var inputField = document.getElementById('date-product-licenseduedate');
+        document.getElementById('date-product-licenseduedate').value = inputField.placeholder;
+    });
+});
 
-// Get the parameter values from the URL
 var productname = getParameterByName('productname');
 var abbriviation = getParameterByName('abbriviation');
 var productprice = getParameterByName('productprice');
@@ -17,17 +26,23 @@ var productcategory = getParameterByName('productcategory');
 var productbrand = getParameterByName('productbrand');
 var productqty = getParameterByName('productqty');
 var productallowtrans = getParameterByName('productallowtrans');
+var checkbox = document.getElementById('num-isactive');
+
+if (productallowtrans === '1') {
+    checkbox.checked = true;
+} else {
+    checkbox.checked = false;
+}
 var productlicenseduedate = getParameterByName('productlicenseduedate');
-console.log("productlicenseduedate : ", productlicenseduedate);
-// Set the field values
+var parsedDate = parseDate(productlicenseduedate);
 $("#tns-product-name").val(productname);
 $("#tns-product-abbriviation").val(abbriviation);
 $("#num-product-price").val(productprice);
 $("#tns-product-category").val(productcategory);
 $("#tns-product-brand").val(productbrand);
 $("#num-product-qty").val(productqty);
-$("#num-isactive").val(productallowtrans);
-$("#date-product-licenseduedate").val(productlicenseduedate);
+//$("#num-isactive").val(productallowtrans);
+$("#date-product-licenseduedate").val(parsedDate);
 
  
 $("#btn-edit-product").click(function(){
@@ -57,7 +72,11 @@ $("#btn-edit-product").click(function(){
           var productbrand = $("#tns-product-brand").val();
           var productallowtrans = $("#num-isactive").val();
           var productlicenseduedate = $("#date-product-licenseduedate").val();
-                      
+          var parts = productlicenseduedate.split('/');
+          var parsedDate = new Date(parts[2], parts[0] - 1, parts[1]);
+          productlicenseduedate = parsedDate.getFullYear() + '-' + 
+         ('0' + (parsedDate.getMonth() + 1)).slice(-2) + '-' + 
+         ('0' + parsedDate.getDate()).slice(-2);
           var product = new FormData();
           product.append("productid", getParameterByName('productid'));
           product.append("productname", productname);
