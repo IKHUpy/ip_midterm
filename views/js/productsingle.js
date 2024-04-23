@@ -124,6 +124,7 @@ console.log("Product License Due Date:", productlicenseduedate);
             if ($.isEmptyObject(answer)) {
                 console.log("No data returned from the server");
             } else {
+               console.log('encodeURIComponent(answer[0]["productallowtrans"]) : ', encodeURIComponent(answer[0]["productallowtrans"]));
                 var url = "./productedit?";
                 url += "productid=" + encodeURIComponent(answer[0]["productid"]);
                 url += "&productname=" + encodeURIComponent(answer[0]["productname"]);
@@ -132,6 +133,8 @@ console.log("Product License Due Date:", productlicenseduedate);
                 url += "&productcategory=" + encodeURIComponent(answer[0]["productcategory"]);
                 url += "&productbrand=" + encodeURIComponent(answer[0]["productbrand"]);
                 url += "&productqty=" + encodeURIComponent(answer[0]["productqty"]);
+                url += "&productallowtrans=" + encodeURIComponent(answer[0]["productallowtrans"]);
+                url += "&productlicenseduedate=" + encodeURIComponent(answer[0]["productlicenseduedate"]);
                 
                 window.location.href = url;
             }
@@ -151,5 +154,7 @@ console.log("Product License Due Date:", productlicenseduedate);
       $("#num-product-price").val('');
       $("#tns-product-category").val('');
       $("#tns-product-brand").val('');
+      $("#num-isactive").val('');
+      $("#date-product-licenseduedate").val('');
     }    	
  });    

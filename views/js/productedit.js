@@ -16,7 +16,9 @@ var productprice = getParameterByName('productprice');
 var productcategory = getParameterByName('productcategory');
 var productbrand = getParameterByName('productbrand');
 var productqty = getParameterByName('productqty');
-
+var productallowtrans = getParameterByName('productallowtrans');
+var productlicenseduedate = getParameterByName('productlicenseduedate');
+console.log("productlicenseduedate : ", productlicenseduedate);
 // Set the field values
 $("#tns-product-name").val(productname);
 $("#tns-product-abbriviation").val(abbriviation);
@@ -24,6 +26,8 @@ $("#num-product-price").val(productprice);
 $("#tns-product-category").val(productcategory);
 $("#tns-product-brand").val(productbrand);
 $("#num-product-qty").val(productqty);
+$("#num-isactive").val(productallowtrans);
+$("#date-product-licenseduedate").val(productlicenseduedate);
 
  
 $("#btn-edit-product").click(function(){
@@ -51,6 +55,8 @@ $("#btn-edit-product").click(function(){
           var productprice = $("#num-product-price").val();
           var productcategory = $("#tns-product-category").val();
           var productbrand = $("#tns-product-brand").val();
+          var productallowtrans = $("#num-isactive").val();
+          var productlicenseduedate = $("#date-product-licenseduedate").val();
                       
           var product = new FormData();
           product.append("productid", getParameterByName('productid'));
@@ -60,7 +66,8 @@ $("#btn-edit-product").click(function(){
           product.append("productcategory", productcategory);
           product.append("productbrand", productbrand);
           product.append("productqty", productqty);
-          console.log(product.get("productid"));
+          product.append("productallowtrans", productallowtrans);
+          product.append("productlicenseduedate", productlicenseduedate);
          
           $.ajax({
              url:"ajax/product_edit_record.ajax.php",

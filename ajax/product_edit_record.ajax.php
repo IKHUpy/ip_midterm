@@ -10,6 +10,8 @@ class editProduct{
   public $productbrand;
   public $productqty;
   public $productcategory;
+  public $productallowtrans;
+  public $productlicenseduedate;
 
   public function editProductRecord(){
     // Get property values
@@ -20,6 +22,8 @@ class editProduct{
     $productbrand = $this->productbrand;
     $productcategory = $this->productcategory;
     $productqty = $this->productqty;
+    $productallowtrans = $this->productallowtrans;
+    $productlicenseduedate = $this->productlicenseduedate;
 
     // Create an array with product data
     $data = array(
@@ -29,7 +33,9 @@ class editProduct{
         "productprice" => $productprice,
         "productbrand" => $productbrand,
         "productcategory" => $productcategory,
-        "productqty" => $productqty
+        "productqty" => $productqty,
+        "productallowtrans" => $productallowtrans,
+        "productlicenseduedate" => $productlicenseduedate
     );
 
     $controllerProduct = new ControllerProduct();

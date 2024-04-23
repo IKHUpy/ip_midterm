@@ -82,6 +82,8 @@ class ControllerProduct{
 			$productqty = $data["productqty"];
 			$productcategory = $data["productcategory"];
 			$productbrand = $data["productbrand"];
+			$productallowtrans = $data["productallowtrans"];
+			$productlicenseduedate = $data["productlicenseduedate"];
 			
 			$productData = array(
 				"productid" => $productid,
@@ -90,7 +92,9 @@ class ControllerProduct{
 				   "productprice" => $productprice,
 				   "productqty" => $productqty,
 				   "productcategory" => $productcategory,
-				   "productbrand" => $productbrand
+				   "productbrand" => $productbrand,
+				   "productallowtrans" => $productallowtrans,
+				   "productlicenseduedate" => $productlicenseduedate
 			   );
 
 		   	$answer = (new ModelProducts)->mdlEditProduct($table, $productData);

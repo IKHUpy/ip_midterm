@@ -51,7 +51,7 @@ class ModelProducts{
 	}	
 
 	static public function 	mdlEditProduct($table, $data){
-		$stmt = (new Connection)->connect()->prepare("UPDATE $table SET productname = :productname, abbriviation = :abbriviation, productprice = :productprice, productcategory = :productcategory, productbrand = :productbrand, productqty = :productqty WHERE productid = :id");
+		$stmt = (new Connection)->connect()->prepare("UPDATE $table SET productname = :productname, abbriviation = :abbriviation, productprice = :productprice, productcategory = :productcategory, productbrand = :productbrand, productqty = :productqty, productallowtrans = :productallowtrans, productlicenseduedate = :productlicenseduedate WHERE productid = :id");
 	
 		$productPrice = number_format($data["productprice"], 2);
 		
@@ -62,6 +62,8 @@ class ModelProducts{
 		$stmt->bindParam(":productcategory", $data["productcategory"], PDO::PARAM_STR);
 		$stmt->bindParam(":productbrand", $data["productbrand"], PDO::PARAM_STR);
 		$stmt->bindParam(":productqty", $data["productqty"], PDO::PARAM_INT);
+		$stmt->bindParam(":productallowtrans", $data["productallowtrans"], PDO::PARAM_INT);
+		$stmt->bindParam(":productlicenseduedate", $data["productlicenseduedate"], PDO::PARAM_STR);
 
 		if($stmt->execute()){
 			return "ok";
