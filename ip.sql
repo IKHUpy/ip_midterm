@@ -158,8 +158,10 @@ CREATE TABLE `products` (
   `productcategory` text DEFAULT NULL,
   `productbrand` text DEFAULT NULL,
   `productqty` int(11) DEFAULT NULL,
+  `productallowtrans` tinyint(1) DEFAULT NULL,
+  `productlicenseduedate` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=91 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -168,7 +170,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'1','Magnum with peanut','MAG_PEANUT',120.00,'Dairy','Selecta',4),(47,'P0002','Spicy Chili Beans','SPICY_CHILI_BEANS',200.00,'Canned Goods','Southwest Gourmet',15),(48,'P0003','Creamy Mushroom Soup','CREAMY_MUSH_SOUP',160.00,'Canned Goods','Gourmet Delights',12),(49,'P0004','Chunky Tomatoe Soup','CHUNKY_TOM_SOUPE',900.00,'Sweets & Treats','Homestyle Pantries',23);
+INSERT INTO `products` VALUES (64,'P101','Amoxicillin Tablets','AMOX-001',10.99,'Antibiotics','ABC Pharmaceuticals',200,1,'2022-04-02'),(65,'P102','Paracetamol Tablets','PARA-002',5.50,'Analgesics','XYZ Pharma',300,1,'2024-05-15'),(66,'P103','Ibuprofen Capsules','IBU-003',8.75,'Analgesics','MediHealth Inc.',150,1,'2024-06-02'),(67,'P104','Antipyretic Syrup','ANTIPY-004',12.99,'Antipyretics','HealthPlus',100,1,'0000-00-00'),(68,'P105','Hand Sanitizer','SAN-005',3.99,'Antiseptics','CleanHands Ltd.',500,1,'0000-00-00'),(69,'P106','Antacid Tablets','ANTAC-006',6.25,'Antacids','GastroCare',401,NULL,NULL),(70,'P107','Loratadine Tablets','LORA-007',15.99,'Antihistamines','AllergyRelief',200,1,'2024-06-05'),(71,'P108','Ondansetron Tablets','ONDA-008',20.50,'Antiemetics','NauseaStop',300,1,'2024-05-30'),(72,'P109','Loperamide Capsules','LOPE-009',7.25,'Antidiarrheals','DiaStop',250,1,'2024-06-10'),(73,'P110','Clotrimazole Cream','CLOTRI-0101',10.00,'Antifungals','FungiFree',150,NULL,NULL),(89,'P0011','Amoxicillin Tablets','AMOX-001',10.99,'Antibiotics','ABC Pharmaceuticals',200,1,'0000-00-00'),(90,'P0012','Amoxicillin Tablets','AMOX-001',10.99,'Antibiotics','ABC Pharmaceuticals',200,1,'0000-00-00');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -181,4 +183,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-04-15 17:57:15
+-- Dump completed on 2024-04-24  0:12:07
