@@ -88,7 +88,9 @@
                             </div>
                         </div>
                       </div>
-                      <button type="" class="btn btn-light btn-round px-5" id=""><i class=""></i>&nbsp;&nbsp;None</button>
+                    <div class="row-sm-4">
+                      <button id="set-calendar-null" type="" class="btn btn-light btn-round px-5" id="">&nbsp;&nbsp;None</button>
+                    </div>
                     </div>
             </div>
 

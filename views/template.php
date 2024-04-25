@@ -119,6 +119,7 @@
   <script src="views/js/clients.js"></script>
   <script src="views/js/productsingle.js"></script>
   <script src="views/js/productedit.js"></script>
+  <script src="views/js/productdelete.js"></script>
   <script src="views/js/grid.js"></script>
   <script src="views/js/payroll.js"></script>
   <script src="views/js/keydatatable.js"></script>

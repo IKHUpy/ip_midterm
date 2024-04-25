@@ -26,7 +26,6 @@ $(function() {
       });
     });
  
-    // SAVE CLIENT
     $("#product-form").submit(function (e) {
        e.preventDefault();
        
@@ -89,7 +88,7 @@ $(function() {
                 },
                 complete: function () {
                   swal.fire({
-                     title: 'Product details successfully saved!!!',
+                     title: 'Product details successfully dqwhqidhqwuiiqhwu!!!',
                      type: 'success',
                      confirmButtonText: 'Got it!',
                      confirmButtonClass: 'btn btn-outline-success',
@@ -97,7 +96,7 @@ $(function() {
                      buttonsStyling: false
                   }).then(function(result){
                      if(result.value) {            
-                        window.location = "products";  
+                        window.location = "./productadd";  
                      }
                   })
                 }
@@ -110,7 +109,7 @@ $(function() {
         var productid = $(this).attr("idproduct");
         var data = new FormData();
         data.append("productid", productid);
-        console.log("data.productid = ", data.get("productid"));
+
        $.ajax({
           url:"ajax/product_get_record.ajax.php",
           method: "POST",

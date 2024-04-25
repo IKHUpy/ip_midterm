@@ -100,6 +100,7 @@
                 </div>
                 <div class="col-lg-9">
                   <div class="float-sm-right">
+                   <button type="button" class="btn btn-light btn-round px-5" id="btn-del-product"><i class="fa fa-trash"></i>&nbsp;&nbsp;Delete</button>
                    <button type="button" class="btn btn-light btn-round px-5" onClick="location.href='productadd'"><i class="fa fa-file"></i>&nbsp;&nbsp;New</button>
 
                    <button type="button" class="btn btn-light btn-round px-5" id="btn-edit-product"><i class="fa fa-save"></i>&nbsp;&nbsp;Save</button>

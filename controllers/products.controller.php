@@ -2,10 +2,7 @@
 
 class ControllerProduct{
 	static public function ctrCreateProduct($data){
-		// Define the table name
 		$table = "products";
-	
-		// Extract necessary data from $data array
 		$productname = $data["productname"];
 		$abbriviation = $data["abbriviation"];
 		$productprice = $data["productprice"];
@@ -14,8 +11,6 @@ class ControllerProduct{
 		$productbrand = $data["productbrand"];
 		$productallowtrans = $data["productallowtrans"];
 		$productlicenseduedate = $data["productlicenseduedate"];
-	
-		// Create an array with product data
 		$productData = array(
 			"productname" => $productname,
 			"abbriviation" => $abbriviation,
@@ -26,8 +21,6 @@ class ControllerProduct{
 			"productallowtrans" => $productallowtrans,
 			"productlicenseduedate" => $productlicenseduedate
 		);
-	
-		// Call the model method to add the product
 		$answer = (new ModelProducts)->mdlAddProduct($table, $productData);
 		   	if($answer == "ok"){
 				echo'<script>
@@ -69,6 +62,40 @@ class ControllerProduct{
 	static public function ctrShowProducts(){
 		$answer = (new ModelProducts)->mdlShowProducts();
 		return $answer;
+	}
+	static public function ctrDeleteProduct($obj){
+		$answer = (new ModelProducts)->mdlDeleteProduct($obj);
+		if($answer == "ok"){
+		 echo'<script>
+			 swal.fire({
+			   title: "Product details successfully appended!!!!!!!!!!!!",
+			   type: "success",
+			   confirmButtonText: "Proceed",
+			   confirmButtonClass: "btn btn-outline-success",
+			   allowOutsideClick: false,
+			   buttonsStyling: false,
+			 }).then(function(answer){
+			   if(result.value) {
+				 window.location = "productadd";
+			   }
+			 })
+		 </script>';    
+	 } else if ($answer == "error") {
+		 echo'<script>
+			 swal.fire({
+			   title: "linte!!!!!!!!!!!!",
+			   type: "success",
+			   confirmButtonText: "Proceed",
+			   confirmButtonClass: "btn btn-outline-success",
+			   allowOutsideClick: false,
+			   buttonsStyling: false,
+			 }).then(function(answer){
+			   if(result.value) {
+				 window.location = "productadd";
+			   }
+			 })
+		 </script>';   
+	 }
 	}
 
 	static public function ctrEditProduct($data){

@@ -4,7 +4,7 @@ require_once "connection.php";
 
 class ModelProducts{
 	static public function mdlAddProduct($table, $data){
-        $cust_id = (new Connection)->connect()->prepare("SELECT CONCAT('P', LPAD((count(id)+1),4,'0')) as gen_id  FROM products FOR UPDATE");
+        $cust_id = (new Connection)->connect()->prepare("SELECT CONCAT('P', LPAD(IFNULL((SELECT MAX(id) + 1 FROM products), 1), 4, '0')) AS gen_id FROM products FOR UPDATE");
 
         $cust_id->execute();
 		$custid = $cust_id -> fetchAll(PDO::FETCH_ASSOC);
@@ -47,6 +47,17 @@ class ModelProducts{
 		$stmt -> execute();
 		return $stmt -> fetchAll();
 		$stmt -> close();
+		$stmt = null;
+	}	
+	static public function mdlDeleteProduct($obj){
+		$stmt = (new Connection)->connect()->prepare("DELETE FROM products WHERE productid = :prodid");
+		$stmt->bindParam(":prodid", $obj["productid"], PDO::PARAM_STR);
+		if($stmt->execute()){
+			return "ok";
+		}else{
+			return "error";
+		}
+		$stmt->close();
 		$stmt = null;
 	}	
 
