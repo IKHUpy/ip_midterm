@@ -4,7 +4,7 @@ require_once "connection.php";
 
 class ModelProducts{
 	static public function mdlAddProduct($table, $data){
-        $cust_id = (new Connection)->connect()->prepare("SELECT CONCAT('P', LPAD(IFNULL((SELECT MAX(id) + 1 FROM products), 1), 4, '0')) AS gen_id FROM products FOR UPDATE");
+        $cust_id = (new Connection)->connect()->prepare("SELECT CONCAT('P', LPAD((max(id)+1),4,'0')) as gen_id  FROM products FOR UPDATE");
 
         $cust_id->execute();
 		$custid = $cust_id -> fetchAll(PDO::FETCH_ASSOC);
