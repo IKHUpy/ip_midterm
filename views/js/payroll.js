@@ -80,16 +80,20 @@ $(function() {
       let cola = toNumeric($('#num-cola').val());
       let overtimehrs = toNumeric($('#num-overtimehrs').val());
       let tax = toNumeric($('#num-tax').val());
-      let sss = toNumeric($('#num-sss').val());
+      //let sss = toNumeric($('#num-sss').val());
       let cshadvance = toNumeric($('#num-cshadvance').val());
 
       let gross = rateperday * numdayswork + cola + (overtimehrs * (rateperday / 8 * 1.30));
       let philhealth = (gross * 0.04) / 2;
+      let sss = computeDeduction(gross);
       let totalded = tax + philhealth + sss + cshadvance;
       let netsalary = gross - totalded;
 
       $('#num-gross').val(formatNumber(gross.toFixed(2)));
       $('#num-philhealth').val(formatNumber(philhealth.toFixed(2)));
+
+      $('#num-sss').val(formatNumber(sss.toFixed(2)));
+
       $('#num-totalded').val(formatNumber(totalded.toFixed(2)));
       $('#num-netsalary').val(formatNumber(netsalary.toFixed(2)));
    });

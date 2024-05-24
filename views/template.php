@@ -121,6 +121,7 @@
   <script src="views/js/productedit.js"></script>
   <script src="views/js/productdelete.js"></script>
   <script src="views/js/grid.js"></script>
+  <script src="views/js/sss.js"></script>
   <script src="views/js/payroll.js"></script>
   <script src="views/js/keydatatable.js"></script>
 

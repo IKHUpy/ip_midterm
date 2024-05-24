@@ -79,7 +79,7 @@
 
                       <div class="col-sm-3 form-group">
                           <label for="num-sss">SSS</label>
-                          <input type="text" class="form-control numeric" id="num-sss" name="num-sss" value="0.00" autocomplete="nope">
+                          <input type="text" class="form-control numeric" id="num-sss" name="num-sss" value="0.00" autocomplete="nope" readonly>
                       </div>
 
                       <div class="col-sm-3 form-group">

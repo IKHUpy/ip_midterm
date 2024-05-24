@@ -82,23 +82,23 @@ $(function() {
                 processData: false,
                 dataType:"text",
                 success:function(answer){
-                },
-                error: function () {
-                   alert("Oops. Something went wrong!");
-                },
-                complete: function () {
-                  swal.fire({
-                     title: 'Product details successfully dqwhqidhqwuiiqhwu!!!',
-                     type: 'success',
-                     confirmButtonText: 'Got it!',
-                     confirmButtonClass: 'btn btn-outline-success',
-                     allowOutsideClick: false,
-                     buttonsStyling: false
-                  }).then(function(result){
-                     if(result.value) {            
-                        window.location = "./productadd";  
-                     }
-                  })
+               },
+               error: function () {
+                  alert("Oops. Something went wrong!");
+               },
+               complete: function () {
+                   swal.fire({
+                      title: 'Product details successfully!',
+                      type: 'success',
+                      confirmButtonText: 'Got it!',
+                      confirmButtonClass: 'btn btn-outline-success',
+                      allowOutsideClick: false,
+                      buttonsStyling: false
+                   }).then(function(result){
+                      if(result.value) {            
+                         window.location = "./productadd";  
+                      }
+                   })
                 }
              })
            }
